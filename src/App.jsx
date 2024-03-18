@@ -9,17 +9,24 @@ import { CustomForm } from './components/Form.jsx'
 
 function App() {
 
+const initialUser = {
+  id: 1,
+  email:"iam@hacker.com",
+  name: "Otto Mathias", 
+  username:"otto"}
+  const [user, setUser] = useState(initialUser);
+
 
   return (
     <>
       <div>
-        <Header />
+        <Header user={user} />
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h2> React Context API</h2>
-      <CustomForm />
+      <CustomForm user={user} setUserInParentComponent={setUser} />
     </>
   )
 }
